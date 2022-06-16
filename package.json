@@ -1,0 +1,11 @@
+{
+  "name": "zewo",
+  "version": "1.0.0",
+  "description": "A Great Bot",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Krish Vijayvergia",
+  "license": "ISC"
+}
