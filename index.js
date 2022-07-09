@@ -1,5 +1,23 @@
 const Discord = require('discord.js');
-const client = new Discord.Client();
+const { REST } = require('@discordjs/rest');
+const { Routes } = require('discord-api-types/v9');
+const fs = require('node:fs');
+const generateImage = require("./genImage")
+const client = new Discord.Client({intents: ['GUILDS', 'GUILD_MESSAGES', 'GUILD_MEMBERS', 'GUILD_INVITES']});
+
+const commands = [];
+const commandFiles = fs.readdirSync('./cmds').filter(file => file.endsWith('.js'));
+
+const guildid = 994458947719282738
+const clientid = 986877711609892874
+
+
+for (const file of commandFiles) {
+	const command = require(`./cmds/${file}`);
+	commands.push(command.data.toJSON());
+}
+
+
 
 
 client.on('ready', () => {
@@ -8,12 +26,16 @@ client.on('ready', () => {
     }, 60000); 
 });
 
-client.on('message', message =>{
-    if(!message.content.startsWith(prefix) || message.author.bot) return;
+const welcomeChannelId = "994458948335841287"
 
-    const args = message.content.slice(prefix.length).split(/ +/);
-    const command = args.shift().toLowerCase();
+client.on("guildMemberAdd", async (member) => {
+const img = await generateImage(member)
+member.guild.channels.cache.get(welcomeChannelId).send({
+    content: `<@${member.id}> Welcome to the server!`,
+    files: [img]
+})
 })
 
 
-client.login(process.env.TOKEN)
+
+client.login('OTg2ODc3NzExNjA5ODkyODc0.GqGvhf.JU0ZZ9UPS_AyDXLSmYR9rfSMIkV-qRox_-AEfc')
