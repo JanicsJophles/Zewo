@@ -2,6 +2,7 @@ const Discord = require('discord.js');
 const { REST } = require('@discordjs/rest');
 const { Routes } = require('discord-api-types/v9');
 const fs = require('node:fs');
+require('dotenv').config();
 const generateImage = require("./genImage")
 const client = new Discord.Client({intents: ['GUILDS', 'GUILD_MESSAGES', 'GUILD_MEMBERS', 'GUILD_INVITES']});
 
@@ -38,4 +39,4 @@ member.guild.channels.cache.get(welcomeChannelId).send({
 
 
 
-client.login('OTg2ODc3NzExNjA5ODkyODc0.GqGvhf.JU0ZZ9UPS_AyDXLSmYR9rfSMIkV-qRox_-AEfc')
+client.login(process.env.TOKEN)
