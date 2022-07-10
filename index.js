@@ -58,7 +58,7 @@ client.once("ready", () =>{
 
     // welcome command!!!!
 
-const welcomeChannelId = "995455054813347952"
+const welcomeChannelId = "994458948335841287"
 const welcomeRoleChannelID = "994458948335841283"
 
 
@@ -75,7 +75,7 @@ const welcomeEmbed = {
     image: {
         url: 'attachment://welcome.png'
     },
-    //description: `Go get some roles at <#${welcomeRoleChannelID}> \n <@${member.id}> be my kitten!!`,
+    description: `Go get some roles at <#${welcomeRoleChannelID}> \n <@${member.id}> be my kitten!!`,
     footer: "Have fun in the server!"
 }
      
