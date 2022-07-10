@@ -41,18 +41,19 @@ const generateImage = async (member) => {
     ctx.textAlign = "center"
     ctx.strokeStyle = "black"
 
-    ctx.font = "50px Roboto"
+    ctx.font = "50px Sans"
     ctx.fillText("Welcome", dim.width/2, dim.margin + 70)
 
-    ctx.font = "60px Roboto"
+    ctx.font = "60px Sans"
     ctx.fillText(username + discrim, dim.width/2, dim.height - dim.margin - 75)
     ctx.strokeText(username + discrim, dim.width/2, dim.height - dim.margin - 75)
-    ctx.font = "50px Roboto"
+    ctx.font = "50px Sans"
     ctx.fillText("to the server", dim.width/2, dim.height - dim.margin - 20)
 
     const attachment = new Discord.MessageAttachment(canvas.toBuffer(), "welcome.png")
     return attachment
 
+   
 }
 
 module.exports = generateImage
