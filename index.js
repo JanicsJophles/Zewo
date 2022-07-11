@@ -6,7 +6,7 @@ const fs = require('fs')
 const { REST } = require('@discordjs/rest');
 const { Routes } = require('discord-api-types/v9');
 
-const client = new Client({ intents: [Intents.FLAGS.GUILDS, 'GUILDS', 'GUILD_MESSAGES', 'GUILD_MEMBERS', 'GUILD_INVITES'] });
+const client = new Client({ intents: [Intents.FLAGS.GUILDS, 'GUILDS', 'GUILD_MESSAGES', 'GUILD_MEMBERS', 'GUILD_INVITES', 'DIRECT_MESSAGES'] });
 
 
 const commandFiles = fs.readdirSync("./commands").filter(file => file.endsWith(".js"));
@@ -63,7 +63,7 @@ const welcomeRoleChannelID = "994458948335841283"
 
 
 client.on("guildMemberAdd", async (member) => {
-    console.log('awidoowahd')
+    console.log(`${member.id} joined the server! the embed was sent :D`)
 const img = await generateImage(member)
 const welcomeEmbed = {
     color: "BLURPLE",
