@@ -1,14 +1,12 @@
 const { MessageActionRow, MessageButton, MessageEmbed, MessageAttachment, InteractionCollector } = require('discord.js'); 
 const { SlashCommandBuilder } = require('@discordjs/builders')
 
-const data = {
-    name: "verify",
-    description: "Verify via CAPTCHA verification",
-        
-}
+
 module.exports = {
-    data: data,
-    run: async(interaction) => {
+    data: new SlashCommandBuilder()
+        .setName("verify")
+        .setDescription('Verify via CAPTCHA in DMs'),
+    execute: async(interaction) => {
         if(interaction.channel.id === "995967577253761075") {  
         const row = new MessageActionRow()
         .addComponents(
@@ -23,7 +21,7 @@ module.exports = {
             const embed = new MessageEmbed()
             .setColor("DARK_GOLD")
             .setTitle('To verify yourself, please click the button!!')
-            .description("By clicking the button you agree to be DMd by the bot.")
+            .setDescription("By clicking the button you agree to be DMd by the bot.")
             interaction.reply({embeds: [embed], components: [row]})
             
  
@@ -88,20 +86,21 @@ module.exports = {
                 }
 
                 const attach = new MessageAttachment(canvas.toBuffer(), "mommy.png")
-                const embed = {
+                const yesEmbed = {
                     title: ('Please complete the CAPTCHA!!'),
                     image: ('attachment://mommy.png')
                 }
                 
-                const sent = await person.send({ embeds: [embed], files: [attach]})
+                const sent = await person.send({ embeds: [yesEmbed], files: [attach]})
                 const answer = joe
             const filtere = i => i.id === interaction.user.id
             const messageCollector = sent.channel.createMessageComponentCollector({filtere, time: 20000})
             messageCollector.on('collect', async m => {
                 try{
+                    
                     if(m.content === answer) {
                         messageCollector.stop()
-                        const verifiedRole = interaction.guild.roles.cache.find(r => r.name === 'cum nugget monkey balls')
+                        const verifiedRole = interaction.guild.roles.cache.find(r => r.id === '994458947773800532')
                         person.roles.add(verifiedRole)
                         m.reply('Correct! You are now verified')
                     } else {
@@ -147,6 +146,7 @@ module.exports = {
             messageCollector.on('end', collected => {
                if(collected.size == 0) {
                 sent.channel.send("You did not send an answer. Run the cmd again to verify.")
+                console.log(messageCollector)
                }
             })
         }catch(err) {
@@ -155,6 +155,7 @@ module.exports = {
         }
            collector.stop()
         }
+        
     });
     collector.on('end', collected => {
         if(collected.size == 0) {
