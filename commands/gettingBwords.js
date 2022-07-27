@@ -1,14 +1,14 @@
-const {SlashCommandBuilder} = require("@discordjs/builders")
+const {SlashCommandBuilder} = require('discord.js')
 const wait = require('node:timers/promises').setTimeout;
+
 
 module.exports ={
     data: new SlashCommandBuilder()
     .setName("bitches")
-    .setDescription("Getting ayan bitches"),
+    .setDescription("Getting you bitches"),
     
     async execute(interaction){
-        let reply = [3, 4, 10, 10000, 30]
-        let result = Math.floor(Math.random() * reply.length)
+        let result = Math.floor(Math.random() * 100) + 1;
         await interaction.reply("Getting Bitches... 1%");
         await wait(2000);
 		await interaction.editReply('Getting Bitches... 10%');
@@ -23,7 +23,7 @@ module.exports ={
         await wait(2000);
         await interaction.editReply('Getting Bitches... 100%!');
         await wait(2000);
-        await interaction.followUp(`You've got ${reply[result]} bitches.`)
+        await interaction.followUp(`You've got ${result} bitches.`)
         
     }
     

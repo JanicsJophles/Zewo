@@ -1,6 +1,4 @@
-const Discord = require('discord.js')
-const { SlashCommandBuilder } = require('@discordjs/builders')
-
+const { SlashCommandBuilder } = require('discord.js')
 module.exports = {
     data: new SlashCommandBuilder()
     .setName('8ball')

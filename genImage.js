@@ -1,5 +1,5 @@
 const Canvas = require("canvas")
-const Discord = require("discord.js")
+const {AttachmentBuilder, Attachment} = require('discord.js')
 const background = "https://static.zerochan.net/Mugon.full.512988.jpg"
 
 const dim = {
@@ -50,7 +50,7 @@ const generateImage = async (member) => {
     ctx.font = "50px Sans"
     ctx.fillText("to the server", dim.width/2, dim.height - dim.margin - 20)
 
-    const attachment = new Discord.MessageAttachment(canvas.toBuffer(), "welcome.png")
+    const attachment = new AttachmentBuilder(canvas.toBuffer(), { name: "welcome.png" }) 
     return attachment
 
    
