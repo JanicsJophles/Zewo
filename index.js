@@ -10,6 +10,7 @@ require('dotenv').config()
 const client = new Client
 ({ intents: [
     GatewayIntentBits.Guilds,
+    'MessageContent',
     'DirectMessageReactions',
     'DirectMessages',
     'GuildInvites',
@@ -128,6 +129,7 @@ const welcomeEmbed = {
      
 member.guild.channels.cache.get(welcomeChannelId).send({embeds: [welcomeEmbed], files: [img]});
 })
+
 
 
 
