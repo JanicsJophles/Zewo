@@ -2,16 +2,19 @@ const { Client, GatewayIntentBits, Partials, Collection, } = require('discord.js
 const fs = require('node:fs')
 const path = require('path')
 const generateImage = require('./genImage.js')
+const { Op } = require('sequelize')
+const {Users, CurrencyShop} = require('./dbObjects.js')
 
 require('dotenv').config()
 
 const client = new Client
 ({ intents: [
-    GatewayIntentBits.Guilds,  
+    GatewayIntentBits.Guilds,
     'DirectMessageReactions',
     'DirectMessages',
     'GuildInvites',
     'GuildMembers',
+    'GuildMessageReactions'
     
 ]});
 
@@ -29,7 +32,41 @@ for (const file of commandFiles) {
 
 //console.log(client.commands)
 
+
 //end of command handler
+
+const currency = new Collection()
+
+
+     Reflect.defineProperty(currency, 'add', {
+        value: async (id, amount) => {
+            const user = currency.get(id);
+    
+            if (user) {
+                user.balance += Number(amount);
+                return user.save();
+            }
+    
+            const newUser = await Users.create({ user_id: id, balance: amount });
+            currency.set(id, newUser);
+    
+            return newUser;
+        },
+    });
+
+
+
+     Reflect.defineProperty(currency, 'getBalance', {
+        value: id => {
+            const user = currency.get(id);
+            return user ? user.balance : 0;
+        },
+    });
+
+client.on('messageCreate', async message => {
+	if (message.author.bot) return;
+	currency.add(message.author.id, 1);
+});
 
 
 //start of event handler
@@ -95,4 +132,4 @@ member.guild.channels.cache.get(welcomeChannelId).send({embeds: [welcomeEmbed], 
 
 
 client.login(process.env.TOKEN);
-
+module.exports = {currency}

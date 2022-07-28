@@ -50,7 +50,7 @@ const generateImage = async (member) => {
     ctx.font = "50px Sans"
     ctx.fillText("to the server", dim.width/2, dim.height - dim.margin - 20)
 
-    const attachment = new AttachmentBuilder(canvas.toBuffer(), { name: "welcome.png" }) 
+    const attachment = new AttachmentBuilder(canvas.toBuffer('image/png'), { name: "welcome.png" }) 
     return attachment
 
    
