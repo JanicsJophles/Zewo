@@ -31,7 +31,7 @@ module.exports = {
     .setAuthor({name: `${member} kissed ${mentionedMember.tag}.. aww`, iconURL: `${avatarURL}`})
     .setImage(randomImg)
     .setColor(randomSideColor)
-    await interaction.reply({embeds: [embed]})     
+    await interaction.reply({content: `${mentionedMember}`, embeds: [embed]})     
     }
     
 }
