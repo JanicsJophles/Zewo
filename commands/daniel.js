@@ -3,8 +3,8 @@ const {SlashCommandBuilder, EmbedBuilder} = require('discord.js')
 
 module.exports = {
     data: new SlashCommandBuilder()
-    .setName('daniel')
-    .setDescription('daniels command')
+    .setName('come')
+    .setDescription('come???')
     .addUserOption(option => option.setName('target').setDescription('select a user...').setRequired(true)),
     async execute(interaction){
     let member = interaction.user.tag

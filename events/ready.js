@@ -1,11 +1,15 @@
 const { Users, CurrencyShop } = require('../dbObjects.js')
+const {ActivityType} = require('discord.js')
 module.exports = {
     name: 'ready',
     once: 'true',
    async execute(client){
-        //client.user.setPresence({activites: [{name: 'being cool'}], status: 'idle'})
-        const storedBalances = await Users.findAll();
-	    storedBalances.forEach(b => currency.set(b.user_id, b));
+        client.user.setActivity({
+            name: "ily sheen",
+            type: ActivityType.Streaming,
+            url: "https://www.twitch.tv/krishanatoryt"
+        })
+    
         
         console.log(`Logged in as ${client.user.tag}!`);
     }
