@@ -18,17 +18,17 @@ module.exports = {
         .addFields(
             {name: `${emojiOne} Text Commands!!`, value: "`sheen`, `bitches`\n" },
             
-            {name: `${emojiTwo} Image Commands!!`, value: "`eightball`, `randomcat`, `urban`, `hotdog`, `come`, `poll`\n"},
+            {name: `${emojiTwo} Image Commands!!`, value: "`eightball`, `randomcat`, `urban`, `hotdog`, `come`, `poll`, `coinflip`\n"},
             
-            {name: `${emojiThree} Rating Commands!!`, value: "`gayrate`, `funnyrate`, `pp`\n"},
+            {name: `${emojiThree} Rating Commands!!`, value: "`gayrate`, `funnyrate`, `pp`, `clownrate`, `waifurate`\n"},
             
-            {name: `${emojiFour} Interactive Commands ;)`, value: "`slap`, `kiss`\n"},
+            {name: `${emojiFour} Interactive Commands ;)`, value: "`slap`, `kiss`, `ship`\n"},
 
         )
         .setColor(randomSideColor)
         .setImage('https://media4.giphy.com/media/RMwgs5kZqkRyhF24KK/200.gif')
         .setTimestamp()
-        .setFooter({ text: 'Bot going public in 2 weeks :D'})
+        .setFooter({ text: 'Bot going public TODAY!! :D'})
 
     await interaction.reply({embeds: [embed]})
     }
