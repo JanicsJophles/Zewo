@@ -5,7 +5,7 @@ module.exports = {
     once: 'true',
    async execute(client){
         client.user.setActivity({
-            name: "ily sheen",
+            name: "Someone be mine",
             type: ActivityType.Streaming,
             url: "https://www.twitch.tv/krishanatoryt"
         })
