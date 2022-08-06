@@ -1,5 +1,5 @@
 const {SlashCommandBuilder, EmbedBuilder} = require('discord.js')
-var Scraper = require('images-scraper')
+
 
 
 
