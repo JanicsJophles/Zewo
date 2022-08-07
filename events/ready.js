@@ -11,7 +11,7 @@ module.exports = {
         })
     
         
-        console.log(`Logged in as ${client.user.tag}!`);
+        console.log(`Logged in as ${client.user.tag}! There are ${client.guilds.cache.size} servers`);
     }
 
 }
