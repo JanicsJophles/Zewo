@@ -18,11 +18,11 @@ module.exports = {
         .addFields(
             {name: `${emojiOne} Text Commands!!`, value: "`sheen`, `bitches`\n" },
             
-            {name: `${emojiTwo} Image Commands!!`, value: "`eightball`, `randomcat`, `urban`, `hotdog`, `come`, `poll`, `coinflip`\n"},
+            {name: `${emojiTwo} Image Commands!!`, value: "`8ball`, `randomcat`, `define`, `hotdog`, `come`, `poll`, `coinflip`\n"},
             
             {name: `${emojiThree} Rating Commands!!`, value: "`gayrate`, `funnyrate`, `pp`, `clownrate`, `waifurate`\n"},
             
-            {name: `${emojiFour} Interactive Commands ;)`, value: "`slap`, `kiss`, `ship`\n"},
+            {name: `${emojiFour} Interactive Commands ;)`, value: "`slap`, `kiss`, `ship`, `hug`\n"},
 
             {name: `${emojiFive} Info Commands :D`, value: "`serverinfo`, `avatar`"}
 

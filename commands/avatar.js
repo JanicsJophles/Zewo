@@ -10,20 +10,19 @@ module.exports = {
     const member = interaction.user
     const mentionedMember = interaction.options.getUser('target')
     const memberAvatarURL = interaction.user.displayAvatarURL({extension: "png", dynamic: false})
-    const mentionedAvatarURL = mentionedMember.displayAvatarURL({extension: "png"})
     
     if(mentionedMember){
         const embed = new EmbedBuilder()
         .setAuthor({name: `The avatar for ${mentionedMember.tag}`})
         .setDescription(`Their ID: ${mentionedMember.id}`)
-        .setImage(`${mentionedAvatarURL}`)
-        await interaction.reply({embeds: [embed]})
-    }  else {
+        .setImage(`${mentionedMember.displayAvatarURL()}`)
+        return interaction.reply({embeds: [embed]})
+    }  if(member) {
         const otherEmbed = new EmbedBuilder()
         .setTitle(`The avatar for ${member.tag}`)
         .setDescription(`Their ID: ${member.id}`)
         .setImage(`${memberAvatarURL}`)
-        await interaction.reply({embeds: [otherEmbed]})
+        return interaction.reply({embeds: [otherEmbed]})
     }
     
     
