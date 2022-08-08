@@ -24,6 +24,8 @@ module.exports = {
             
             {name: `${emojiFour} Interactive Commands ;)`, value: "`slap`, `kiss`, `ship`\n"},
 
+            {name: `${emojiFive} Info Commands :D`, value: "`serverinfo`, `avatar`"}
+
         )
         .setColor(randomSideColor)
         .setImage('https://media4.giphy.com/media/RMwgs5kZqkRyhF24KK/200.gif')

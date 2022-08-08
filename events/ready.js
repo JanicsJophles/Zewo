@@ -8,7 +8,7 @@ module.exports = {
             name: `${client.guilds.cache.size} servers`,
             type: ActivityType.Streaming,
             url: "https://www.twitch.tv/krishanatoryt"
-        }, 60000)
+        })
     
         
         console.log(`Logged in as ${client.user.tag}! There are ${client.guilds.cache.size} servers`);

@@ -18,7 +18,7 @@ const client = new Client
     
 ]});
 
-//start of command handler
+//start of command handler for global
 
 client.commands = new Collection()
 const commandsPath = path.join(__dirname, 'commands');
@@ -30,10 +30,24 @@ for (const file of commandFiles) {
 	client.commands.set(command.data.name, command);
 }
 
-//console.log(client.commands)
+
+//end of command handler for global
 
 
-//end of command handler
+
+//start of command handler for guild
+
+
+const ownerCommandsPath = path.join(__dirname, 'ownerCommands');
+const ownerCommandFiles = fs.readdirSync(ownerCommandsPath).filter(file => file.endsWith('.js'));
+
+for (const ownerFile of ownerCommandFiles) {
+	const ownerFilePath = path.join(ownerCommandsPath, ownerFile);
+	const ownerCommand = require(ownerFilePath);
+	client.commands.set(ownerCommand.data.name, ownerCommand);
+}
+//end of command handler for guild
+
 
 
 
@@ -67,6 +81,8 @@ client.on('interactionCreate', async interaction => {
 		console.error(error);
 		await interaction.reply({ content: 'There was an error while executing this command!', ephemeral: true });
 	}
+
+   
 });
 
 
@@ -76,7 +92,7 @@ const rulesChannel = "994458948335841282"
 const generalChannel = '994458948335841287'
 
 client.on("guildMemberAdd", async (member) => {
-    console.log(`${member.id} joined the server! the embed was sent :D`)
+    console.log(`${member.name} joined the server! the embed was sent :D`)
 const img = await generateImage(member)
 const welcomeEmbed = {
     color: 0x0099ff,
