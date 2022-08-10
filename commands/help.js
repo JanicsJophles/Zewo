@@ -20,13 +20,13 @@ module.exports = {
             
             {name: `<:emoji_11:1003136058428493854> Interactive Commands ;)`, value: "`slap`, `kiss`, `ship`, `hug`\n"},
 
-            {name: `<:coochieworld:1003132134195736676> Info Commands :D`, value: "`serverinfo`, `avatar`"}
+            {name: `<:coochieworld:1003132134195736676> Info Commands :D`, value: "`serverinfo`, `avatar`, `memberinfo`"}
 
         )
         .setColor(randomSideColor)
         .setImage('https://media4.giphy.com/media/RMwgs5kZqkRyhF24KK/200.gif')
         .setTimestamp()
-        .setFooter({ text: 'Bot going public TODAY!! :D'})
+        .setFooter({ text: 'bot is public :D'})
 
     await interaction.reply({embeds: [embed]})
     }
