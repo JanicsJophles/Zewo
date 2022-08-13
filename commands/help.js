@@ -26,7 +26,7 @@ module.exports = {
         .setColor(randomSideColor)
         .setImage('https://media4.giphy.com/media/RMwgs5kZqkRyhF24KK/200.gif')
         .setTimestamp()
-        .setFooter({ text: 'bot is public :D'})
+        .setFooter({ text: 'i luv u :D'})
 
     await interaction.reply({embeds: [embed]})
     }
