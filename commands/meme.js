@@ -10,6 +10,7 @@ module.exports = {
     const post = body[0].data.children[0].data
     
     const embed = new EmbedBuilder()
+    .setAuthor({name: `${post.subreddit_name_prefixed}`})
    .setTitle(`${post.title}`)
    .setURL(`https://www.reddit.com${post.permalink}`)
     .setImage(`${post.url}`)
