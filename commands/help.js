@@ -18,7 +18,7 @@ module.exports = {
             
             {name: `<a:egirlsa:1004192313926484048> Rating Commands!!`, value: "`gayrate`, `funnyrate`, `pp`, `clownrate`, `waifurate`\n"},
             
-            {name: `<:emoji_11:1003136058428493854> Interactive Commands ;)`, value: "`slap`, `kiss`, `ship`, `hug`\n"},
+            {name: `<:emoji_11:1003136058428493854> Interactive Commands ;)`, value: "`slap`, `kiss`, `ship`, `hug`, `meme`, `reddits`, `food`\n"},
 
             {name: `<:coochieworld:1003132134195736676> Info Commands :D`, value: "`serverinfo`, `avatar`, `memberinfo`"}
 

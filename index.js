@@ -92,7 +92,7 @@ const rulesChannel = "994458948335841282"
 const generalChannel = '994458948335841287'
 
 client.on("guildMemberAdd", async (member) => {
-    console.log(`${member.name} joined the server! the embed was sent :D`)
+    console.log(`${member} joined the server! the embed was sent :D`)
 const img = await generateImage(member)
 const welcomeEmbed = {
     color: 0x0099ff,
@@ -118,4 +118,3 @@ member.guild.channels.cache.get(welcomeChannelId).send({content: `Wassup <@${mem
 
 
 client.login(process.env.TOKEN);
-
