@@ -22,7 +22,7 @@ module.exports = {
         .setImage(`${imagesTruly}`)
         .setFooter({text: `👍 ${post.ups} | 👎 ${post.downs} | 💬 ${post.num_comments}`})
         .setColor('Random')
-    if(extension == 'gif' || 'jpg' || 'png'){
+    if(extension === 'gif' || extension === 'png' || extension === 'jpg'){
         interaction.reply({embeds: [embed]})
     } else {
         const embedTwo = new EmbedBuilder()
