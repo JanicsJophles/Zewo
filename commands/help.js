@@ -1,4 +1,5 @@
 const { SlashCommandBuilder, EmbedBuilder, Embed, ButtonBuilder, ActionRowBuilder, ButtonStyle, MessageComponentInteraction, ComponentType } = require('discord.js')
+const wait = require('node:timers/promises').setTimeout;
 
 module.exports = {
     data: new SlashCommandBuilder()
@@ -128,23 +129,18 @@ module.exports = {
               
               } else if (i.customId === 'nepage') {
                 
+                
                 await i.update({
                   content: '',
                   embeds: [imageCmds], 
                   components: [row2], 
                   });
                 
-                } else if (i.customId === 'nepage') {
-                  
-                  await i.update({
-                    content: '',
-                    embeds: [ratingCmds], 
-                    components: [row2], 
-                    });
-                  
-                  } 
+                } 
 
           })
+
+  
     
 
     }
