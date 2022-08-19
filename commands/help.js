@@ -96,16 +96,20 @@ module.exports = {
           );
 
           
-
+          const stuff = {
+            embeds: [helpEmbed],
+            components: [row],
+            fetchReply: true
+          }
       
-          await interaction.reply({embeds: [helpEmbed], components: [row]})
+          const msg = interaction.replied ? await interaction.followUp(stuff) : await interaction.reply(stuff)
       
           const filter = i => i.user.id === interaction.user.id;
       
-          const collector = interaction.channel.createMessageComponentCollector({ componentType: ComponentType.Button, filter, });
+          const collector = msg.createMessageComponentCollector({filter : filter, time : 1000 * 60 });
       
       
-          collector.on('collect', async i => {
+          collector.on('collect', async (i) => {
             if(i.customId === 'disabled'){
               await i.deferUpdate()
               await i.update({
@@ -114,15 +118,15 @@ module.exports = {
               
             }
       
-            if (i.customId === 'next-page') {
-              
+           else if (i.customId === 'next-page') {
+            
               await i.update({
                 content: '',
                 embeds: [textCommands], 
                 components: [row2], 
                 });
               
-              } if (i.customId === 'nepage') {
+              } else if (i.customId === 'nepage') {
                 
                 await i.update({
                   content: '',
@@ -130,7 +134,15 @@ module.exports = {
                   components: [row2], 
                   });
                 
-                }
+                } else if (i.customId === 'nepage') {
+                  
+                  await i.update({
+                    content: '',
+                    embeds: [ratingCmds], 
+                    components: [row2], 
+                    });
+                  
+                  } 
 
           })
     

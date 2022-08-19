@@ -1,4 +1,4 @@
-const {SlashCommandBuilder, EmbedBuilder} = require('discord.js')
+const {SlashCommandBuilder, EmbedBuilder, ActionRowBuilder, ButtonBuilder, ButtonStyle} = require('discord.js')
 const request = require('node-superfetch')
 module.exports = {
     data: new SlashCommandBuilder()
@@ -8,6 +8,8 @@ module.exports = {
 
     
     async execute(interaction, client){
+        
+    
         
     let reddits = interaction.options.getString('input')
     reddits = reddits.replace(/\s/g, '');
@@ -22,16 +24,30 @@ module.exports = {
         .setImage(`${imagesTruly}`)
         .setFooter({text: `👍 ${post.ups} | 👎 ${post.downs} | 💬 ${post.num_comments}`})
         .setColor('Random')
+
+        
     if(extension === 'gif' || extension === 'png' || extension === 'jpg'){
         interaction.reply({embeds: [embed]})
     } else {
+        const row = new ActionRowBuilder()
+        .addComponents(
+
+        
+        new ButtonBuilder()
+            
+            .setLabel('Source Link')
+            .setURL(`${post.url}`)
+            .setStyle(ButtonStyle.Link),
+        );
+
+
         const embedTwo = new EmbedBuilder()
         .setAuthor({name: `${post.subreddit_name_prefixed}`})
        .setTitle(`${post.title}`)
        .setURL(`https://www.reddit.com${post.permalink}`)
         .setFooter({text: `👍 ${post.ups} | 👎 ${post.downs} | 💬 ${post.num_comments}`})
         .setColor('Random')
-        interaction.reply({content: `Gifv/MP4 post from ${post.subreddit_name_prefixed}\nTitle: ${post.title}\nURL: https://www.reddit.com${post.permalink}\n👍 ${post.ups} | 👎 ${post.downs} | 💬 ${post.num_comments}\n${post.url}`})
+        interaction.reply({content: `Gifv/MP4 post from ${post.subreddit_name_prefixed}\nTitle: ${post.title}\nURL: https://www.reddit.com${post.permalink}\n👍 ${post.ups} | 👎 ${post.downs} | 💬 ${post.num_comments}\n`, components: [row] })
     }
     
         
