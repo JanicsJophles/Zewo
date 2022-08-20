@@ -12,7 +12,7 @@ module.exports = {
     .setDefaultMemberPermissions(PermissionFlagsBits.Administrator),
     async execute(interaction, client){
     let servers = client.guilds.cache.size
-    let serverNames = client.guilds.cache.map(g => g.name)
+    let serverNames = client.guilds.cache.map(g => `${g.name}`)
     
     const {roles} = interaction.member
     const role = await interaction.guild.roles.fetch('994458947798978668')

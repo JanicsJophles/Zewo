@@ -12,7 +12,7 @@ module.exports = {
     
         
     let reddits = interaction.options.getString('input')
-    reddits = reddits.replace(/\s/g, '');
+    reddits = reddits.replace(/\s/g, ''); //gets rid of spaces!! and stuff
     const { body } = await request.get(`https://www.reddit.com/r/${reddits}/random/.json`)
     const post = body[0].data.children[0].data
     const imagesTruly = post.url
