@@ -5,6 +5,6 @@ module.exports = {
 		.setName('sheen')
 		.setDescription("just sheen"),
 		async execute(interaction) {
-		await interaction.reply('wow sheen');
+		await interaction.reply('ily sheenie pie');
 	},
 };

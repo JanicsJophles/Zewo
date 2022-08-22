@@ -3,7 +3,7 @@ const fs = require('node:fs')
 const path = require('path')
 const generateImage = require('./genImage.js')
 
-
+const prefix = '--'
 require('dotenv').config()
 
 const client = new Client
@@ -29,6 +29,8 @@ for (const file of commandFiles) {
 	const command = require(filePath);
 	client.commands.set(command.data.name, command);
 }
+
+
 
 
 //end of command handler for global
@@ -90,29 +92,41 @@ const welcomeChannelId = "994458948335841287"
 const welcomeRoleChannelID = "994458948335841283"
 const rulesChannel = "994458948335841282"
 const generalChannel = '994458948335841287'
+const guildId = "994458947719282738"
 
-client.on("guildMemberAdd", async (member) => {
-    console.log(`${member} joined the server! the embed was sent :D`)
-const img = await generateImage(member)
-const welcomeEmbed = {
-    color: 0x0099ff,
-    title: "Welcome To the Better Egirl Paradise Server",
-    url: "https://top.gg/servers/994458947719282738/vote",
-    thumbnail: {
-        url: "https://www.icegif.com/wp-content/uploads/2022/01/icegif-547.gif"
-    },
-    image: {
-        url: 'attachment://welcome.png'
-    },
-    description: `დ Go get some roles at <#${welcomeRoleChannelID}> ∯\nდ Read the rules at <#${rulesChannel}> ∯\nდAnd get a kitten in <#${generalChannel}> ∯`,
-    footer: {
-        text: "Have fun in the server!",
-        icon_url: "https://i.gifer.com/RhbX.gif"
+client.on("guildMemberAdd", async (member, client) => {
+    
+    
 
-    }
-}
-     
-member.guild.channels.cache.get(welcomeChannelId).send({content: `Wassup <@${member.id}>`, embeds: [welcomeEmbed], files: [img]});
+    if(member.guild.id === '994458947719282738'){
+        console.log(`${member} joined the Egirl Paradise! the embed was sent :D`)
+        console.log(member.guild.id)
+        const img = await generateImage(member)
+        const welcomeEmbed = {
+            color: 0x0099ff,
+            title: "Welcome To the Better Egirl Paradise Server",
+            url: "https://top.gg/servers/994458947719282738/vote",
+            thumbnail: {
+                url: "https://www.icegif.com/wp-content/uploads/2022/01/icegif-547.gif"
+            },
+            image: {
+                url: 'attachment://welcome.png'
+            },
+            description: `დ Go get some roles at <#${welcomeRoleChannelID}> ∯\nდ Read the rules at <#${rulesChannel}> ∯\nდAnd get a kitten in <#${generalChannel}> ∯`,
+            footer: {
+                text: "Have fun in the server!",
+                icon_url: "https://i.gifer.com/RhbX.gif"
+        
+            }
+        }
+             
+        member.guild.channels.cache.get(welcomeChannelId).send({content: `Wassup ${member.id}`, embeds: [welcomeEmbed], files: [img]});}
+
+
+
+
+
+
 })
 
 
