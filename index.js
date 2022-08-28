@@ -73,7 +73,6 @@ for (const file of eventFiles) {
 client.on('interactionCreate', async interaction => {
 	if (!interaction.isChatInputCommand()) return;
     if (interaction.isSelectMenu()) return;
-	console.log(interaction);
 	const command = client.commands.get(interaction.commandName);
 
 	if (!command) return;
