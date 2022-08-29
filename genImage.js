@@ -1,7 +1,7 @@
 const Canvas = require("canvas")
 const {AttachmentBuilder, Attachment} = require('discord.js')
-const background = "https://static.zerochan.net/Mugon.full.512988.jpg"
-
+const backgrounds = ["https://static.zerochan.net/Mugon.full.512988.jpg", "https://images7.alphacoders.com/341/341225.jpg", 'https://images3.alphacoders.com/165/thumb-1920-165265.jpg', 'https://www.wallpapers13.com/wp-content/uploads/2016/01/Autumn-forest-waterfall-nature-aiyumn-HD-background-2560x1600-1920x1440.jpg']
+const background = backgrounds[Math.floor(Math.random() * backgrounds.length)];
 const dim = {
     height: 600,
     width: 1200,
