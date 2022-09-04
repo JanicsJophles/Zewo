@@ -13,7 +13,7 @@ module.exports = {
             .setStyle(ButtonStyle.Link)
         )
         const stuff = 'Why are you still on discord? Why are you on your couch right now talking to egirls and kittens? Get a life. Get a job. Click the button down below u stupid idiot.'
-        await interaction.reply({content: stuff, components: [link]})
+        await interaction.reply({content: [stuff], components: [link]})
     }
     
 }
