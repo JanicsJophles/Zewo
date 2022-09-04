@@ -39,7 +39,7 @@ module.exports = {
         try{
             const embed = new EmbedBuilder()
             .setTitle(trackName)
-            .setURL(trackUrl)
+            .setURL(trackUrl)   
             .addFields(
                 {name: 'Track Duration', value: time, inline: true},
                 {name: 'Track Listeners', value: trackListeners, inline: true},
@@ -51,6 +51,7 @@ module.exports = {
             .setImage(trackimfg)
             .setColor('Random')
 		await interaction.reply({embeds: [embed]});
+        console.log(track)
         
         
         } catch (error){
