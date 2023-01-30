@@ -11,7 +11,7 @@ module.exports = {
         const imagesTruly = post.url
         const extension = imagesTruly.split('.').pop();
         const embed = new EmbedBuilder()
-        .setTitle("What a cute puppy :D")
+        .setTitle("What a cute kitten :D")
         .setColor('Random')
         .setImage(imagesTruly)
 

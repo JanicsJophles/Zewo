@@ -1,7 +1,8 @@
-const { Client, GatewayIntentBits, Partials, Collection, EmbedBuilder } = require('discord.js');
+const { Client, GatewayIntentBits, Partials, Collection, EmbedBuilder, Events } = require('discord.js');
 const fs = require('node:fs')
 const path = require('path')
 const generateImage = require('./genImage.js')
+const MongoClient = require('mongodb').MongoClient;
 
 const prefix = '--'
 require('dotenv').config()
@@ -31,6 +32,13 @@ for (const file of commandFiles) {
 }
 
 
+// const uri = "mongodb+srv://krishanator:<tGWYopq6Yt6UWJGT>@zewo.vkdy7.mongodb.net/?retryWrites=true&w=majority";
+// const client = new MongoClient(uri, { useNewUrlParser: true });
+// client.connect(err => {
+//     const collection = client.db("test").collection("discord_users");
+//   // perform actions on the collection object
+//   client.close();
+// });
 
 
 //end of command handler for global
@@ -65,31 +73,13 @@ for (const file of eventFiles) {
 		client.once(event.name, (...args) => event.execute(...args));
 	} else {
 		client.on(event.name, (...args) => event.execute(...args));
-    }
+	}
 }
 
 
 //end of event handler
 
-client.on('interactionCreate', async interaction => {
-	if (interaction.isChatInputCommand()){
-        const command = client.commands.get(interaction.commandName);
 
-        if (!command) return;
-    
-        try {
-            await command.execute(interaction, client);
-        } catch (error) {
-            console.error(error);
-            await interaction.reply({ content: 'There was an error while executing this command!', ephemeral: true });
-        }
-    }
-    
-    else if (!interaction.isSelectMenu()) return
-
-    
-   
-});
 
 
 const welcomeChannelId = "994458948335841287"
@@ -125,10 +115,6 @@ client.on("guildMemberAdd", async (member, client) => {
         }
              
         member.guild.channels.cache.get(welcomeChannelId).send({content: `Wassup <@${member.id}>`, embeds: [welcomeEmbed], files: [img]});}
-
-
-
-
 
 
 })
